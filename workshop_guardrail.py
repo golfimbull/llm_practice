@@ -25,7 +25,7 @@ from guardrails import Guard
 # Имена классов ниже соответствуют названиям валидаторов из Guardrails Hub.
 # В зависимости от версии пакета/обвязки импорт может незначительно отличаться.
 from guardrails.hub import (
-    DetectPII,
+    DetectPDN,
     DetectJailbreak,
     ToxicLanguage,
     ValidJson,
@@ -79,7 +79,7 @@ def build_output_pii_guard() -> Guard:
     не просто ошибка, а попытка анонимизации/маскирования.
     """
     guard = Guard().use(
-        DetectPII(
+        DetectPDN(
             on_fail="fix"
         )
     )
